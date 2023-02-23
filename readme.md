@@ -20,33 +20,6 @@ PHPStan
 
 ----
 
-#### Routes
-
-Create article
-> POST /articles
- 
-Example: 
-> curl --location --request POST 'http://localhost/articles/' \
---form 'title="test title"' \
---form 'text="test text"' \
---form 'author_id="123"'
-
----
-
-List of all articles
-> GET /articles
-
-Example:
-> curl --location --request GET 'http://localhost/articles/'
----
-
-List article by ID
-> GET /articles/{id}
-
-Example:
-> curl --location --request GET 'http://localhost/articles/1'
----
-
 #### Test users
 
 >test;test
@@ -58,11 +31,14 @@ Example:
 ---
 
 - More tests
-- Migrations
+- Real migrations
 - Request validators
 - Cache
 - Better bootstrap for app
-- ORM
+- Support filters and includes in services
 - Model factories
 - Logging
-- Templates
+- Registration page
+- Authors page
+- Prevent brute force by ip (attempts table)
+- Prevent brute force by ip (attempts table)
