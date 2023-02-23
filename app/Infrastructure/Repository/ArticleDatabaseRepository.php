@@ -37,7 +37,7 @@ class ArticleDatabaseRepository implements ArticleRepositoryInterface
             [$filterKey, $filterValue] = $filter;
 
             $res = $this->database->query(
-                "SELECT * FROM articles WHERE $filterKey = $filterValue ORDER BY created_at ASC LIMIT $limit OFFSET $offset",
+                "SELECT * FROM articles WHERE $filterKey = $filterValue ORDER BY created_at DESC LIMIT $limit OFFSET $offset",
                 [":$filterKey" => $filterValue]
             );
         } else {
