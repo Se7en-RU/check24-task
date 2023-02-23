@@ -42,5 +42,6 @@ PHPStan
 - Logging
 - Registration page
 - Authors page
-- Prevent brute force by ip (attempts table)
+- Article comments
+- Author name and comments count in article
 - Prevent brute force by ip (attempts table)
