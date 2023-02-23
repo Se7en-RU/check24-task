@@ -37,6 +37,9 @@ final class Route
             }, ARRAY_FILTER_USE_KEY);
 
             foreach ($values as $key => $value) {
+                if (is_numeric($value)) {
+                    $value = (int)$value;
+                }
                 $this->vars[$key] = $value;
             }
 

@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+     <div class="row row-cols-1">
+     {% for article in articles %}
+          <div class="col mb-3">
+               <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                         <h3 class="mb-0">
+                              <a class="text-dark text-decoration-none" href="/articles/{{ article.id }}">{{ article.title }}</a>
+                         </h3>
+                         <div class="mb-1"><a class="text-decoration-none text-muted" href="/articles/{{ article.id }}">{{ article.created_at }}</a></div>
+                         <p class="card-text mb-auto"><a class="text-decoration-none text-dark" href="/articles/{{ article.id }}">{{ article.text|striptags|length > 100 ? article.text|striptags|slice(0, 100) ~ '...' : article.text|striptags }}</a></p>
+                         <a class="text-left" href="/authors/{{ article.author_id }}">Author: test</a>
+                         <a class="text-right" href="/articles/{{ article.id }}">Comments: 123</a>
+                    </div>
+                    <a href="/articles/{{ article.id }}">
+                         <img class="card-img-right flex-auto d-none d-md-block" src="{{ article.image_url|e }}" alt="{{ article.title|e }}" width="100%" height="225">
+                    </a>
+               </div>
+          </div>
+     {% endfor %}
+     </div>
+     <nav>
+          <ul class="pagination justify-content-center">
+               {% for page in 1..pagesCount %}
+                    <li class="page-item {% if currentPage == page %}active{% endif %}"><a class="page-link" href="{% if currentPage == page %}#{% else %}/page-{{ page }}{% endif %}">{{ page }}</a></li>
+               {% endfor %}
+          </ul>
+     </nav>
+{% endblock %}

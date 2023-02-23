@@ -1,0 +1,17 @@
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="https://via.placeholder.com/40" class="bi me-2" width="40" height="32" alt="Blog">
+        Blog name
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+        {% if user is not empty %}<li><a href="/articles/new" class="nav-link px-2 link-secondary">Add article</a></li>{% endif %}
+    </ul>
+
+    <div class="col-md-3 text-end">
+        {% if user is empty %}
+            <a href="/login" class="btn btn-outline-primary me-2">Login</a>
+        {% else %}
+            <a href="/logout" class="btn btn-outline-primary me-2">Logout</a>
+        {% endif %}
+    </div>

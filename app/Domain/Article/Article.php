@@ -10,6 +10,7 @@ class Article
     private int $authorId;
     private string $title;
     private string $text;
+    private string $imageUrl;
     private string $createdAt;
     private string $updatedAt;
 
@@ -82,6 +83,24 @@ class Article
     public function setText(string $text): Article
     {
         $this->text = $text;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param string $imageUrl
+     * @return Article
+     */
+    public function setImageUrl(string $imageUrl): Article
+    {
+        $this->imageUrl = $imageUrl;
         return $this;
     }
 

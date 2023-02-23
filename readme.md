@@ -47,6 +47,11 @@ Example:
 > curl --location --request GET 'http://localhost/articles/1'
 ---
 
+#### Test users
+
+>test;test
+
+---
 
 #### TODO LIst
 

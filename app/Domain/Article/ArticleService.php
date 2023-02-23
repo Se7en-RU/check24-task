@@ -15,41 +15,35 @@ class ArticleService
     {
     }
 
-    public function create(array $data): bool
+    public function create(array $data): ?int
     {
         try {
             $article = (new Article())
                 ->setTitle($data['title'])
                 ->setText($data['text'])
-                ->setAuthorId((int)$data['author_id']);
+                ->setImageUrl($data['image_url'])
+                ->setAuthorId($data['author_id']);
 
-            $this->articleRepository->create($article);
+            return $this->articleRepository->create($article);
         } catch (Throwable) {
-            return false;
+            return null;
         }
-
-        return true;
     }
 
     public function list(int $page = 1): ?array
     {
         [$limit, $offset] = $this->getLimitAndOffset($page);
 
-        // TODO check for null
-        $articles = $this->articleRepository->list($limit, $offset);
+        return $this->articleRepository->list($limit, $offset);
+    }
 
-        return $articles;
+    public function getPagesCount(array $filter = []): int
+    {
+        return $this->getTotalPagesCount($this->articleRepository->getTotalCount($filter));
     }
 
     public function getById(int $id): ?Article
     {
-        $article = $this->articleRepository->getById($id);
-
-        // TODO
-//        if (!$article) {
-//            throw new Exception('Article not found');
-//        }
-
-        return $article;
+        return $this->articleRepository->getById($id);
     }
 }

@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+     <div class="row row-cols-1">
+          <div class="col mb-3">
+               <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                         <h3 class="mb-0">
+                              <a class="text-dark text-decoration-none" href="/articles/{{ article.id }}">{{ article.title }}</a>
+                         </h3>
+                         <div class="mb-1"><a class="text-decoration-none text-muted" href="/articles/{{ article.id }}">{{ article.createdAt }}</a></div>
+                         <img class="mt-3 mb-3" src="{{ article.imageUrl|e }}" alt="{{ article.title|e }}" width="100%" height="225">
+
+                         <p class="card-text mb-auto">{{ article.text|e }}</p>
+                         <p>Author: test</p>
+                         <p>Comments: 123</p>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <h3>Comments</h3>
+     {% for comment in comments %}
+
+     {% endfor %}
+
+     {% if user is not empty %}
+          <h3>Add comment</h3>
+          <form action="/article{{ article.id }}/comments" method="post">
+               <div class="form-group">
+                    <label>Name*</label>
+                    <input type="text" name="name" class="form-control" required>
+               </div>
+               <div class="form-group mt-3">
+                    <label>Email Address</label>
+                    <input type="email" name="email" class="form-control" />
+               </div>
+               <div class="form-group mt-3">
+                    <label>URL</label>
+                    <input type="text" name="url" class="form-control">
+               </div>
+               <div class="form-group mt-3">
+                    <label>Text*</label>
+                    <textarea class="form-control" name="text" rows="3" required></textarea>
+               </div>
+               <div class="form-group mt-3">
+                    <input type="submit" name="submit" class="btn btn-primary" value="Comment">
+               </div>
+          </form>
+     {% else %}
+          <p><a href="/login">Login here</a> to comment this article.</p>
+     {% endif %}
+{% endblock %}
