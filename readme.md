@@ -8,6 +8,14 @@
 
 > docker-compose exec php composer i
 
+Open
+http://localhost:80
+
+#### Test users
+
+>test;test
+
+---
 #### Scripts
 
 ---
@@ -19,12 +27,6 @@ PHPStan
 > docker-compose exec php php vendor/bin/phpstan analyse app tests --level 5
 
 ----
-
-#### Test users
-
->test;test
-
----
 
 #### TODO LIst
 
