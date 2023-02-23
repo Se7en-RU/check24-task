@@ -1,0 +1,20 @@
+/vendor
+.env
+.env.testing
+.phpunit.result.cache
+docker-compose.override.yml
+composer.local.json
+/.docker/mysql/data
+
+# IDEs #
+###################
+*.sublime-project
+*.sublime-workspace
+/.idea
+/.vscode
+*.komodoproject
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
